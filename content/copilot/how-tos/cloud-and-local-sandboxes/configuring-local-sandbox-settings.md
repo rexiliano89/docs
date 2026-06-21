@@ -12,11 +12,7 @@ docsTeamMetrics:
   - copilot-cli
 ---
 
-{% data reusables.cli.public-preview-sandbox %} 
-
-> [!IMPORTANT]
-> Local sandboxing on Windows requires a Windows Insiders build.
-
+{% data reusables.cli.public-preview-sandbox %}
 
 ## About local sandbox configuration
 
@@ -44,7 +40,7 @@ The **General** tab controls the top-level sandbox behavior.
 
 ## Configuring filesystem settings
 
-The **Filesystem** tab controls which directories and files the sandboxed process can access. By default, the sandbox restricts writes outside your working directory.
+The **Filesystem** tab controls which directories and files the sandboxed process can access. By default, the sandbox restricts filesystem access to prevent unintended reads or writes outside your project.
 
 | Setting | Description |
 | --- | --- |
@@ -72,15 +68,7 @@ The **Network** tab controls whether sandboxed processes can make network connec
 
 ### Adding network host rules
 
-> [!WARNING]
-> Per-host network filtering with `allowedHosts` and `blockedHosts` is currently not reliable across platforms. Do not rely on host rules to enforce network isolation.
-
-The `/sandbox` UI allows you to add host rules, but these rules have known platform limitations:
-
-* **macOS**: `allowedHosts` rules silently degrade to unrestricted outbound access, and `blockedHosts` rules are not supported.
-* **Linux**: Host rules are not a reliable way to allow selected hosts when outbound connections are disabled.
-
-If the UI presents host rule options, you can add them using the steps below, but they are not suitable for security enforcement.
+You can add specific host rules to allow or block access to individual hosts when outbound connections are otherwise restricted.
 
 1. In the **Network** tab, press <kbd>A</kbd> to add a new host rule.
 1. Enter the hostname.
@@ -100,5 +88,5 @@ These commands change the **Sandboxing enabled** setting on the **General** tab.
 ## Further reading
 
 * [AUTOTITLE](/copilot/concepts/about-cloud-and-local-sandboxes)
-* [AUTOTITLE](/copilot/how-tos/cloud-and-local-sandboxes/enabling-or-disabling-cloud-sandboxes-for-your-organization)
+* [AUTOTITLE](/copilot/how-tos/cloud-and-local-sandboxes/enabling-or-disabling-cloud-and-local-sandboxes-for-your-organization)
 * [AUTOTITLE](/copilot/how-tos/copilot-cli/set-up-copilot-cli/configure-copilot-cli)
